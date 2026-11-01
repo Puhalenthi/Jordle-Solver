@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="DjFS9BiKNhgxzP7zsLxe">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-5" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-1" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="words.txt text file" vertex="1">
+          <mxGeometry height="60" width="120" x="140" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-11" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="WordList" vertex="1">
+          <mxGeometry height="60" width="120" x="380" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-4" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-3" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-14" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-3" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Main (START)" vertex="1">
+          <mxGeometry height="100" width="100" x="390" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-16" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-6" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="User" vertex="1">
+          <mxGeometry height="120" width="120" x="670" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-7" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="Actor" vertex="1">
+          <mxGeometry height="60" width="30" x="810" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-18" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-8" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="SolverGUI" vertex="1">
+          <mxGeometry height="60" width="120" x="670" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-20" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-9" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" target="sbG-V_w21_RWYEJJXzGs-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Feedback" vertex="1">
+          <mxGeometry height="60" width="120" x="670" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-22" edge="1" parent="1" source="sbG-V_w21_RWYEJJXzGs-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="sbG-V_w21_RWYEJJXzGs-8">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="830" />
+              <mxPoint x="830" y="830" />
+              <mxPoint x="830" y="510" />
+            </Array>
+            <mxPoint x="520" y="860" as="sourcePoint" />
+            <mxPoint x="810" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Solver" vertex="1">
+          <mxGeometry height="60" width="120" x="380" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-12" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Filters and sends candidates" vertex="1">
+          <mxGeometry height="70" width="80" x="360" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-13" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Tells to load the words from the words.txt file" vertex="1">
+          <mxGeometry height="80" width="80" x="450" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-15" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Opens the GUI" vertex="1">
+          <mxGeometry height="30" width="80" x="510" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-17" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Sends color feedback input" vertex="1">
+          <mxGeometry height="50" width="80" x="730" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-19" parent="1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="Builds a Feedback object&amp;nbsp;" vertex="1">
+          <mxGeometry height="30" width="80" x="750" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Sends the feedback object to the Solver so it can find the next best guess" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="sbG-V_w21_RWYEJJXzGs-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Sends the next best guess to the SolverGUI for it to be displayed" vertex="1">
+          <mxGeometry height="30" width="60" x="560" y="850" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
