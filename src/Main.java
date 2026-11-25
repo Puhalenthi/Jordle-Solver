@@ -6,14 +6,14 @@ public class Main {
         WordList wordList = new WordList("data/words.txt");
         System.out.println("Loaded " + wordList.size() + " words");
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your guess: ");
-        String guess = scanner.nextLine().trim().toLowerCase();
-        System.out.print("Enter the colors (g = green, y = yellow, x = grey): ");
-        String pattern = scanner.nextLine().trim().toLowerCase();
+        System.out.println("cigar, crane gyyxx (expect true): "
+                + Solver.isMatching("cigar", Feedback.fromInput("crane", "gyyxx")));
+        System.out.println("cigar, crane gxxxx (expect false): "
+                + Solver.isMatching("cigar", Feedback.fromInput("crane", "gxxxx")));
 
-        Feedback feedback = Feedback.fromInput(guess, pattern);
-        System.out.println(feedback);
-        scanner.close();
+        Solver solver = new Solver(wordList.getWords());
+        solver.getFeedback(Feedback.fromInput("crane", "gyyxx"));
+        System.out.println(solver.getCandidates().size() + " words remain");
+        System.out.println(solver.getCandidates());
     }
 }
