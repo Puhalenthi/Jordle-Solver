@@ -16,6 +16,9 @@ import java.util.Scanner;
 public class Main implements ActionListener {
     public static JFrame frame;
     public static Solver solver;
+    public static JLabel suggestionLabel;
+    public static JLabel wordsLabel;
+    public static JLabel guessLabel;
     public static JTextField textField;
     public static JButton[] tiles = new JButton[30];
     public static int row = 0;
@@ -37,9 +40,28 @@ public class Main implements ActionListener {
         frame.setSize(400, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JLabel label = new JLabel("Suggested guess: " + solver.suggestGuess() + "   Words left: " + solver.getCandidates().size());
-        label.setHorizontalAlignment(JLabel.CENTER);
-        frame.add(label, BorderLayout.NORTH);
+        JPanel topPanel = new JPanel(new GridLayout(0, 1));
+        suggestionLabel = new JLabel("Suggested guess: " + solver.suggestGuess());
+        wordsLabel = new JLabel("Words left: " + solver.getCandidates().size());
+        guessLabel = new JLabel("Guess: 1");
+        suggestionLabel.setHorizontalAlignment(JLabel.CENTER);
+        wordsLabel.setHorizontalAlignment(JLabel.CENTER);
+        guessLabel.setHorizontalAlignment(JLabel.CENTER);
+
+        topPanel.add(suggestionLabel);
+        topPanel.add(wordsLabel);
+        topPanel.add(guessLabel);
+
+        JPanel inputPanel = new JPanel();
+        textField = new JTextField(10);
+        JButton submitButton = new JButton("Submit");
+        submitButton.setActionCommand("submit");
+        submitButton.addActionListener(new Main());
+
+        inputPanel.add(textField);
+        inputPanel.add(submitButton);
+        topPanel.add(inputPanel);
+        frame.add(topPanel, BorderLayout.NORTH);
 
         JPanel panel = new JPanel(new GridLayout(6, 5));
         for (int i = 0; i < 30; i++) {
@@ -48,19 +70,11 @@ public class Main implements ActionListener {
             button.setBackground(Color.GRAY);
             button.setActionCommand("gray");
             button.addActionListener(new Main());
+
             tiles[i] = button;
             panel.add(button);
         }
         frame.add(panel, BorderLayout.CENTER);
-
-        JPanel inputPanel = new JPanel();
-        textField = new JTextField(10);
-        JButton submitButton = new JButton("Submit");
-        submitButton.setActionCommand("submit");
-        submitButton.addActionListener(new Main());
-        inputPanel.add(textField);
-        inputPanel.add(submitButton);
-        frame.add(inputPanel, BorderLayout.SOUTH);
 
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -74,9 +88,32 @@ public class Main implements ActionListener {
             for (int i = 0; i < 5; i++) {
                 tiles[row * 5 + i].setText(("" + guess.charAt(i)).toUpperCase());
             }
+
             textField.setText("");
             b.setActionCommand("apply");
             b.setText("Apply Colors");
+        } else if (b.getActionCommand().equals("apply")) {
+            LetterColor[] colors = new LetterColor[5];
+            for (int i = 0; i < 5; i++) {
+                String color = tiles[row * 5 + i].getActionCommand();
+                if (color.equals("green"))
+                    colors[i] = LetterColor.GREEN;
+                else if (color.equals("yellow"))
+                    colors[i] = LetterColor.YELLOW;
+                else
+                    colors[i] = LetterColor.GREY;
+            }
+
+            solver.getFeedback(new Feedback(guess, colors));
+            suggestionLabel.setText("Suggested guess: " + solver.suggestGuess());
+            wordsLabel.setText("Words left: " + solver.getCandidates().size());
+
+            row++;
+
+            guessLabel.setText("Guess: " + (row + 1));
+            b.setActionCommand("submit");
+            b.setText("Submit");
+            textField.requestFocus();
         } else if (b.getActionCommand().equals("gray")) {
             b.setActionCommand("yellow");
             b.setBackground(Color.YELLOW);
