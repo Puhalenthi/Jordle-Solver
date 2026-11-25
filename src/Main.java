@@ -6,8 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Main {
+public class Main implements ActionListener {
     static JFrame frame;
 
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class Main {
 
     public static void createGUI() {
         frame = new JFrame("Jordle");
-        frame.setSize(640, 480);
+        frame.setSize(400, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JLabel label = new JLabel("Suggested guess: ");
@@ -29,6 +32,9 @@ public class Main {
         JPanel panel = new JPanel(new GridLayout(6, 5));
         for (int i = 1; i <= 30; i++) {
             JButton button = new JButton("");
+            button.setBackground(Color.GRAY);
+            button.setActionCommand("gray");
+            button.addActionListener(new Main());
             panel.add(button);
         }
         frame.add(panel, BorderLayout.CENTER);
@@ -42,5 +48,19 @@ public class Main {
 
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        JButton b = (JButton) e.getSource();
+        if (b.getActionCommand().equals("gray")) {
+            b.setActionCommand("yellow");
+            b.setBackground(Color.YELLOW);
+        } else if (b.getActionCommand().equals("yellow")) {
+            b.setActionCommand("green");
+            b.setBackground(Color.GREEN);
+        } else if (b.getActionCommand().equals("green")) {
+            b.setActionCommand("gray");
+            b.setBackground(Color.GRAY);
+        }
     }
 }
