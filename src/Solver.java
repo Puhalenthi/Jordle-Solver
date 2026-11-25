@@ -65,6 +65,36 @@ public class Solver {
         }
         return colors;
     }
+    
+    /**
+     * Suggests the remaining word whose letters are most common among the candidates
+     */
+    public String suggestGuess() {
+        int[] letterCounts = new int[26];
+        for (String word : candidates) {
+            for (int i = 0; i < 26; i++) {
+                char letter = (char) ('a' + i);
+                if (word.indexOf(letter) != -1)
+                    letterCounts[i]++;
+            }
+        }
+
+        String bestWord = "";
+        int bestScore = -1;
+        for (String word : candidates) {
+            int score = 0;
+            for (int i = 0; i < 26; i++) {
+                char letter = (char) ('a' + i);
+                if (word.indexOf(letter) != -1)
+                    score += letterCounts[i];
+            }
+            if (score > bestScore) {
+                bestScore = score;
+                bestWord = word;
+            }
+        }
+        return bestWord;
+    }
 
     public List<String> getCandidates() {
         return candidates;

@@ -26,7 +26,7 @@ public class Main implements ActionListener {
         frame.setSize(400, 600);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        JLabel label = new JLabel("Suggested guess: ");
+        JLabel label = new JLabel("Suggested guess: " + solver.suggestGuess() + "   Words left: " + solver.getCandidates().size());
         frame.add(label, BorderLayout.NORTH);
 
         JPanel panel = new JPanel(new GridLayout(6, 5));
