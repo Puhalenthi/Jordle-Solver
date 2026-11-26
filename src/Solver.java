@@ -74,8 +74,9 @@ public class Solver {
         for (String word : candidates) {
             for (int i = 0; i < 26; i++) {
                 char letter = (char) ('a' + i);
-                if (word.indexOf(letter) != -1)
+                if (word.indexOf(letter) != -1) {
                     letterCounts[i]++;
+                }
             }
         }
 
@@ -85,8 +86,9 @@ public class Solver {
             int score = 0;
             for (int i = 0; i < 26; i++) {
                 char letter = (char) ('a' + i);
-                if (word.indexOf(letter) != -1)
+                if (word.indexOf(letter) != -1) {
                     score += letterCounts[i];
+                }
             }
             if (score > bestScore) {
                 bestScore = score;

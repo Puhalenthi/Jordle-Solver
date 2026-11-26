@@ -91,6 +91,9 @@ public class Main implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         JButton b = (JButton) e.getSource();
+        if (b.getText().equals("")) { // The tile is empty
+            return;
+        }
 
         if (b.getActionCommand().equals("submit")) {
             if (gameOver) {
@@ -120,18 +123,24 @@ public class Main implements ActionListener {
             LetterColor[] colors = new LetterColor[5];
             for (int i = 0; i < 5; i++) {
                 String color = tiles[row * 5 + i].getActionCommand();
-                if (color.equals("green"))
+                if (color.equals("green")) {
                     colors[i] = LetterColor.GREEN;
-                else if (color.equals("yellow"))
+                }
+                else if (color.equals("yellow")) {
                     colors[i] = LetterColor.YELLOW;
-                else
+                }
+                else {
                     colors[i] = LetterColor.GREY;
+                }
+                
+                tiles[row * 5 + i].setActionCommand("locked");
             }
 
             int greens = 0;
             for (int i = 0; i < 5; i++) {
-                if (colors[i] == LetterColor.GREEN)
+                if (colors[i] == LetterColor.GREEN) {
                     greens++;
+                }
             }
             if (greens == 5) {
                 frame.dispose();
