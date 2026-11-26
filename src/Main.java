@@ -19,6 +19,7 @@ public class Main implements ActionListener {
     public static JLabel suggestionLabel;
     public static JLabel wordsLabel;
     public static JLabel guessLabel;
+    public static JLabel messageLabel;
     public static JTextField textField;
     public static JButton[] tiles = new JButton[30];
     public static int row = 0;
@@ -61,6 +62,12 @@ public class Main implements ActionListener {
         inputPanel.add(textField);
         inputPanel.add(submitButton);
         topPanel.add(inputPanel);
+
+        messageLabel = new JLabel("");
+        messageLabel.setForeground(Color.RED);
+        messageLabel.setHorizontalAlignment(JLabel.CENTER);
+        topPanel.add(messageLabel);
+
         frame.add(topPanel, BorderLayout.NORTH);
 
         JPanel panel = new JPanel(new GridLayout(6, 5));
@@ -84,7 +91,18 @@ public class Main implements ActionListener {
         JButton b = (JButton) e.getSource();
 
         if (b.getActionCommand().equals("submit")) {
-            guess = textField.getText().toLowerCase();
+            guess = textField.getText().trim().toLowerCase();
+            if (guess.length() != 5) {
+                messageLabel.setText("Invalid word: must be 5 letters");
+                return;
+            }
+            if (!isAllLetters(guess)) {
+                messageLabel.setText("Invalid word: letters only");
+                return;
+            }
+
+            messageLabel.setText("");
+
             for (int i = 0; i < 5; i++) {
                 tiles[row * 5 + i].setText(("" + guess.charAt(i)).toUpperCase());
             }
@@ -102,6 +120,16 @@ public class Main implements ActionListener {
                     colors[i] = LetterColor.YELLOW;
                 else
                     colors[i] = LetterColor.GREY;
+            }
+
+            int greens = 0;
+            for (int i = 0; i < 5; i++) {
+                if (colors[i] == LetterColor.GREEN)
+                    greens++;
+            }
+            if (greens == 5) {
+                frame.dispose();
+                return;
             }
 
             solver.getFeedback(new Feedback(guess, colors));
@@ -124,5 +152,17 @@ public class Main implements ActionListener {
             b.setActionCommand("gray");
             b.setBackground(Color.GRAY);
         }
+    }
+
+    public static boolean isAllLetters(String guess) {
+        String validLetters = "abcdefghijklmnopqrstuvwxyz";
+        for (int i = 0; i < guess.length(); i++) {
+            char letter = guess.charAt(i);
+            if (validLetters.indexOf(letter) == -1) { // If the character is not a letter
+                return false;
+            }
+        }
+
+        return true;
     }
 }
