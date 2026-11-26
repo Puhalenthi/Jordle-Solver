@@ -24,6 +24,8 @@ public class Main implements ActionListener {
     public static JButton[] tiles = new JButton[30];
     public static int row = 0;
     public static String guess = "";
+    public static boolean gameOver = false;
+
 
     public static void main(String[] args) throws IOException {
         WordList wordList = new WordList("data/words.txt");
@@ -91,6 +93,10 @@ public class Main implements ActionListener {
         JButton b = (JButton) e.getSource();
 
         if (b.getActionCommand().equals("submit")) {
+            if (gameOver) {
+                return;
+            }
+
             guess = textField.getText().trim().toLowerCase();
             if (guess.length() != 5) {
                 messageLabel.setText("Invalid word: must be 5 letters");
@@ -133,15 +139,25 @@ public class Main implements ActionListener {
             }
 
             solver.getFeedback(new Feedback(guess, colors));
-            suggestionLabel.setText("Suggested guess: " + solver.suggestGuess());
             wordsLabel.setText("Words left: " + solver.getCandidates().size());
 
             row++;
 
-            guessLabel.setText("Guess: " + (row + 1));
             b.setActionCommand("submit");
             b.setText("Submit");
-            textField.requestFocus();
+
+            if (solver.getCandidates().size() == 0) {
+                suggestionLabel.setText("Suggested guess: none");
+                messageLabel.setText("Game complete: no matching words");
+                gameOver = true;
+            } else if (row == 6) {
+                messageLabel.setText("Game complete: out of guesses");
+                gameOver = true;
+            } else {
+                suggestionLabel.setText("Suggested guess: " + solver.suggestGuess());
+                guessLabel.setText("Guess: " + (row + 1));
+                textField.requestFocus();
+            }
         } else if (b.getActionCommand().equals("gray")) {
             b.setActionCommand("yellow");
             b.setBackground(Color.YELLOW);
